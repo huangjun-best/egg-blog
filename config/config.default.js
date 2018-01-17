@@ -14,7 +14,27 @@ module.exports = appInfo => {
     mapping: {
       '.tpl':'nunjucks'
     }
+  };
+
+  config.mysql = {
+    client: {
+      host: 'localhost',
+      port: '3306',
+      user: 'root',
+      password: 'root',
+      database: 'test'
+    },
+    app: true,
+    agent: false
+  };
+
+  config.jwt = {
+    secret: '123456',
+    enable: true,
+    match: '/success'
   }
+
+
 
   return config;
 };

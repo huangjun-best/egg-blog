@@ -1,33 +1,33 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/Index'
-import Login from '@/components/login'
-import Register from '@/components/Register'
-import Article from '@/components/Article'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Index from '@/components/Index';
+import Login from '@/components/login';
+import Register from '@/components/Register';
+import Article from '@/components/Article';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Index',
-      component: HelloWorld
+      component: Index,
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
     },
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: Register,
     },
     {
       path: '/article',
       name: 'register',
-      component: Article
+      component: Article,
     }
   ]
 })

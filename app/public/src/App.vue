@@ -37,7 +37,7 @@
                     <BreadcrumbItem>{{ currPage }}</BreadcrumbItem>
                 </Breadcrumb>
                 <Card>
-                    <div id="app" style="min-height: 200px;">
+                    <div id="app">
                       <router-view/>
                     </div>
                 </Card>
@@ -66,6 +66,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 200px;
   margin-top: 60px;
 }
 .layout{
