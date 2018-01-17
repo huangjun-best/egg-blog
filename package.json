@@ -2,38 +2,45 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "scripts":
-  {
-    "dev:front": "egg-born-bin front-dev",
-    "build:front": "egg-born-bin front-build",
-    "dev:backend": "egg-born-bin backend-dev",
-    "debug:backend": "egg-born-bin backend-debug",
-    "lint": "eslint src",
-    "test:backend": "egg-born-bin backend-test",
-    "cov:backend": "egg-born-bin backend-cov",
-    "start:backend": "egg-born-scripts backend-start --daemon",
-    "stop:backend": "egg-born-scripts backend-stop"
+  "private": true,
+  "dependencies": {
+    "egg": "^2.0.0",
+    "egg-scripts": "^2.1.0",
+    "egg-view-nunjucks": "^2.1.4",
+    "egg-view-vue": "^1.0.0"
   },
-  "repository":
-  {
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.0",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^5.1.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
     "type": "git",
     "url": ""
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies":
-  {
-    "babel-eslint": "^8.0.2",
-    "eslint": "^4.11.0",
-    "eslint-config-egg": "^5.1.1",
-    "eslint-plugin-vuefix": "^0.2.1"
-  },
-  "dependencies":
-  {
-    "egg-born-front": "^1.0.17",
-    "egg-born-backend": "^1.0.33",
-    "egg-born-bin": "^1.0.2",
-    "egg-born-scripts": "^1.0.3",
-    "egg-born-module-a-version": "^1.0.19"
-  }
+  "author": "huangjun",
+  "license": "MIT"
 }
