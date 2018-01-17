@@ -1,6 +1,0 @@
-{
-  "name": "backend-blog",
-  "egg": {
-    "framework": "egg-born-backend"
-  }
-}
