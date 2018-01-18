@@ -40,6 +40,10 @@ module.exports = {
         'e' // for e.returnvalue
       ]
     }],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-parsing-error': [2,{
+      "x-invalid-end-tag": false,
+    }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']

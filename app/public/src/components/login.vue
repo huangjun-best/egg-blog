@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     handleSubmit(name) {
-      this.$refs[name].validate(valid => {
+      this.$refs[name].validate((valid) => {
         if (valid) {
           this.$Message.success('Success!');
         } else {

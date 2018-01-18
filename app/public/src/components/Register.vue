@@ -19,14 +19,15 @@
 
 <script>
 import axios from 'axios';
+
 export default {
   name: 'index',
   data() {
     const validateUsername = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('Please enter your username'));
-      }else{
-          callback();
+      } else {
+        callback();
       }
     };
     const validatePass = (rule, value, callback) => {
@@ -70,20 +71,19 @@ export default {
   },
   methods: {
     handleSubmit(name) {
-      this.$refs[name].validate(valid => {
+      this.$refs[name].validate((valid) => {
         if (valid) {
-            //xhr.setRequestHeader('x-csrf-token', csrftoken);
-            const csrftoken = this.$cookie.get('csrfToken');
-          axios.post('/user/register', this.formCustom,{
-            headers: {'x-csrf-token': csrftoken},
+          // xhr.setRequestHeader('x-csrf-token', csrftoken);
+          const csrftoken = this.$cookie.get('csrfToken');
+          axios.post('/user/register', this.formCustom, {
+            headers: { 'x-csrf-token': csrftoken },
           })
-            .then(function (response) {
+            .then((response) => {
               console.log(response);
             })
-            .catch(function (error) {
+            .catch((error) => {
               console.log(error);
             });
-
           this.$Message.success('Success!');
         } else {
           this.$Message.error('Fail!');
