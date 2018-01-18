@@ -15,18 +15,23 @@
 </template>
 
 <script>
-// import 'axios';
+import axios from 'axios';
+
 export default {
   name: 'index',
   data() {
     const validateUsername = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('Please enter your username'));
+      } else {
+        callback();
       }
     };
     const validatePass = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('Please enter your password'));
+      } else {
+        callback();
       }
     };
     return {
@@ -48,7 +53,22 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
-          this.$Message.success('Success!');
+          // xhr.setRequestHeader('x-csrf-token', csrftoken);
+          const csrftoken = this.$cookie.get('csrfToken');
+          axios.post('/user/login', this.formCustom, {
+            headers: { 'x-csrf-token': csrftoken },
+          })
+            .then((response) => {
+              const res = response.data;
+              if (res.code === '201') {
+                this.$Message.error(res.message);
+              } else {
+                this.$Message.success(res.message);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         } else {
           this.$Message.error('Fail!');
         }

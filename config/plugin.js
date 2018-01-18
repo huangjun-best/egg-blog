@@ -26,3 +26,10 @@ exports.jwt = {
   enable: true,
   package: 'egg-jwt',
 };
+
+exports.session = {
+  key: 'hj_blog',
+  maxAge: 3600,
+  httpOnly: true,
+  encrypt: true,
+};

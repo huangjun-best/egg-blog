@@ -11,7 +11,7 @@
             <Input type="password" v-model="formCustom.passwdCheck"></Input>
         </FormItem>
         <FormItem>
-            <Button type="primary" @click="handleSubmit('formCustom')" long>登录</Button>
+            <Button type="primary" @click="handleSubmit('formCustom')" long>注册</Button>
         </FormItem>
     </Form>
   </div>
@@ -79,12 +79,16 @@ export default {
             headers: { 'x-csrf-token': csrftoken },
           })
             .then((response) => {
-              console.log(response);
+              const res = response.data;
+              if (res.code === '201') {
+                this.$Message.error(res.message);
+              } else {
+                this.$Message.success(res.message);
+              }
             })
             .catch((error) => {
-              console.log(error);
+              this.$Message.error(error);
             });
-          this.$Message.success('Success!');
         } else {
           this.$Message.error('Fail!');
         }
