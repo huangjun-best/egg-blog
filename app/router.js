@@ -14,6 +14,6 @@ module.exports = app => {
   router.post('/articleql/create', controller.article.create);
   router.get('/articleql/query', controller.article.query);
 
-
-  router.get('/*', controller.home.index);
+  router.get('/', controller.home.index);
+  router.get('/index', controller.home.index);
 };

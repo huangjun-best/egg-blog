@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import VueCookie from 'vue-cookie';
 import iView from 'iview';
-import 'iview/dist/styles/iview.css';
+// import 'iview/dist/styles/iview.css';
 import App from './App';
 // import VueMarkdown from 'vue-markdown';
 import router from './router';
