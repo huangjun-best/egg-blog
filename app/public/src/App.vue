@@ -17,18 +17,21 @@
                             发表文章
                         </MenuItem>
                         </router-link>
-                        <router-link to="/login">
-                        <MenuItem name="3">
-                            <Icon type="ios-analytics"></Icon>
-                            登录
-                        </MenuItem>
-                        </router-link>
-                        <router-link to="/register">
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            注册
-                        </MenuItem>
-                        </router-link>
+                        <!--<router-link to="/login">-->
+                        <!--<MenuItem name="3">-->
+                            <!--<Icon type="ios-analytics"></Icon>-->
+                            <!--登录-->
+                        <!--</MenuItem>-->
+                        <!--</router-link>-->
+                        <!--<router-link to="/register">-->
+                        <!--<MenuItem name="4">-->
+                            <!--<Icon type="ios-paper"></Icon>-->
+                            <!--注册-->
+                        <!--</MenuItem>-->
+                        <!--</router-link>-->
+                    </div>
+                    <div class="demo-avatar">
+                      <Avatar icon="person" />
                     </div>
                 </Menu>
             </Header>
@@ -48,7 +51,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data() {
@@ -94,4 +96,7 @@ export default {
 .layout-footer-center{
     text-align: center;
 }
+  .demo-avatar{
+    float:right;
+  }
 </style>

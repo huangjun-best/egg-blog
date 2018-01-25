@@ -60,14 +60,12 @@ export default {
           })
             .then((response) => {
               const res = response.data;
-              if (res.code === '201') {
-                this.$Message.error(res.message);
-              } else {
-                this.$Message.success(res.message);
-              }
+              this.$Message.success(res.message);
+              this.$router.push({ path: '/index' });
             })
             .catch((error) => {
-              console.log(error);
+              const result = error.response.data;
+              this.$Message.error(result.message);
             });
         } else {
           this.$Message.error('Fail!');

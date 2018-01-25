@@ -10,7 +10,7 @@ class UserController extends Controller {
     });
     if(getName) {
       this.ctx.body = {
-        'code': '201',
+        'code': '400',
         'message': '用户名已存在',
       };
       return;
@@ -29,21 +29,23 @@ class UserController extends Controller {
       username: body.username,
     });
     if(!result) {
+      this.ctx.status = 400;
       this.ctx.body = {
-        'code': '201',
+        'code': '400',
         'message': '用户名不存在',
       };
       return;
     }
     if(result.password !== body.password){
+      this.ctx.status = 400;
       this.ctx.body = {
-        'code': '201',
+        'code': '400',
         'message': '密码错误',
       };
       return;
     }
     //登录成功
-    this.ctx.session.user = body.userName;
+    this.ctx.session.user = body.username;
     this.ctx.body = {
       'code': '200',
       'message': '登录成功',

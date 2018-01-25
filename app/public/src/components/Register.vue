@@ -80,14 +80,11 @@ export default {
           })
             .then((response) => {
               const res = response.data;
-              if (res.code === '201') {
-                this.$Message.error(res.message);
-              } else {
-                this.$Message.success(res.message);
-              }
+              this.$Message.success(res.message);
             })
             .catch((error) => {
-              this.$Message.error(error);
+              const result = error.response.data;
+              this.$Message.error(result.message);
             });
         } else {
           this.$Message.error('Fail!');

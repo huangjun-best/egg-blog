@@ -11,5 +11,9 @@ module.exports = app => {
   router.post('/user/register', controller.user.register);
   router.post('/user/login', controller.user.login);
 
+  router.post('/articleql/create', controller.article.create);
+  router.get('/articleql/query', controller.article.query);
+
+
   router.get('/*', controller.home.index);
 };

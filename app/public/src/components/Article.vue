@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -29,7 +31,7 @@ export default {
         ],
         desc: [
           { required: true, message: 'Please enter a personal introduction', trigger: 'blur' },
-          { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' },
+          { type: 'string', min: 10, message: 'Introduce no less than 20 words', trigger: 'blur' },
         ],
       },
     };
@@ -38,7 +40,21 @@ export default {
     handleSubmit(name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
-          this.$Message.success('Success!');
+          const csrftoken = this.$cookie.get('csrfToken');
+          axios.post('/articleql/create', this.formValidate, {
+            headers: { 'x-csrf-token': csrftoken },
+          })
+            .then((response) => {
+              const res = response.data;
+              this.$Message.success(res.message);
+              this.$router.push({ path: '/index' });
+            })
+            .catch((error) => {
+              console.log(error);
+              const result = error.response.data;
+              this.$Message.error(result.message);
+              this.$router.push({ path: '/login' });
+            });
         } else {
           this.$Message.error('Fail!');
         }

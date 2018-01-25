@@ -5,10 +5,12 @@ import VueCookie from 'vue-cookie';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import App from './App';
+// import VueMarkdown from 'vue-markdown';
 import router from './router';
 
 Vue.use(VueCookie);
 Vue.use(iView);
+// Vue.use(VueMarkdown);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
