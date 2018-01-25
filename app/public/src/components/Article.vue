@@ -50,7 +50,6 @@ export default {
               this.$router.push({ path: '/index' });
             })
             .catch((error) => {
-              console.log(error);
               const result = error.response.data;
               this.$Message.error(result.message);
               this.$router.push({ path: '/login' });

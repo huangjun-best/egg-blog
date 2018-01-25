@@ -8,6 +8,7 @@ module.exports = appInfo => {
 
   // add your config here
   config.middleware = [];
+  config.version = '0.0.1'
 
   config.view = {
     defaultViewEngine: 'nunjucks',
